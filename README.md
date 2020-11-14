@@ -7,6 +7,7 @@ If you want to learn about being a better programmer, engineer, human, employee,
 - Adolfo Church
 - Margaret Hamilton
 - Steve Wozniak
+- Alan Kay
 - Jim Weirich
 - Rich Hickey
 - Kevlin Henney
