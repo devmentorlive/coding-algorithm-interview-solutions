@@ -1,3 +1,9 @@
+/*
+  Write a function that will reverse the letters of words in a
+  sentence, without altering the position of the words, or the
+  punctuation.
+ */
+
 function reverseWords(str) {
   return str
     .split(' ')
@@ -9,5 +15,3 @@ function reverseWords(str) {
     )
     .join(' ');
 }
-
-module.exports = reverseWords;

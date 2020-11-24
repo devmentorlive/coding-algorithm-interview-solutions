@@ -1,0 +1,89 @@
+function add(a, b) {
+  return a + b
+}
+
+function sub(a, b) {
+  return a - b
+}
+
+function mul(a, b) {
+  return a * b
+}
+
+function liftf(func) {
+  return function(a) {
+    return function(b) {
+      return func(a, b)
+    }
+  }
+}
+
+function curry(func, ...a) {
+  return function(...b) {
+    return func(...a, ...b)
+  }
+}
+
+inc = curry(add, 1)
+inc = addf(1)
+inc = liftf(add)(1)
+
+function twice(binary) {
+  return function(n) {
+    return binary(n, n)
+  }
+}
+
+doubl = twice(add)
+square = twice(mul)
+
+function reverse(binary) {
+  return function (a, b) {
+    return binary(b, a)
+  }
+}
+
+function composeu(u1, u2) {
+  return function (n) {
+    return u2(u1(n))
+  }
+}
+
+function composeb(b1, b2) {
+  return function(v1, v2, v3) {
+    return b2(b1(v1, v2), v3)
+  }
+}
+
+function limit(fun, n) {
+  return function(a, b) {
+    n = n - 1
+    if(n < 0) return undefined
+    return fun(a, b)
+  }
+}
+
+function from(n) {
+  return function() {
+    let next = n
+    n = n + 1
+    return next
+  }
+}
+
+function to(func, t) {
+  return limit(func, t-1)
+}
+
+function fromTo(start, end) {
+  return to(from(start), end+1)
+}
+
+function element(a, range=undefined) {
+  const gen = range === undefined ? fromTo(0, a.length) : range
+  return function () {
+    
+    const index = gen()
+    return index === undefined ? undefined : a[index]
+  }
+}

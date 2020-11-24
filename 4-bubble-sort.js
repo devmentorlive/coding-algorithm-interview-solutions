@@ -1,3 +1,8 @@
+/*
+  Write a function that will perform a bubble search on a list of
+  numbers.
+ */
+
 function bubbleSort(nums) {
   const sorted = [...nums];
   for (let i = 0; i < sorted.length - 1; i++) {
@@ -10,5 +15,3 @@ function bubbleSort(nums) {
 
   return sorted;
 }
-
-module.exports = bubbleSort;

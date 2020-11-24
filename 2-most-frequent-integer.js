@@ -1,3 +1,8 @@
+/*
+  Write a function that will return the most frequent word in a list,
+  if there is a tie, return both
+ */
+
 function mostFrequent(ints) {
   const obj = ints.reduce((acc, int) => {
     acc[int.toString()] = Object.keys(acc).includes(int.toString())
@@ -9,5 +14,3 @@ function mostFrequent(ints) {
     (key) => obj[key] === Math.max(...Object.values(obj)),
   );
 }
-
-module.exports = mostFrequent;
